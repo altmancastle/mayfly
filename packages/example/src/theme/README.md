@@ -7,18 +7,18 @@ This folder contains customizations for the `light` and `dark` Material UI theme
 For themes to work the top-level React component needs to be wrapped into the `<ThemeProvider>` component (see [`./index.tsx`](../index.tsx)):
 
 ```tsx
-import ReactDOM from "react-dom/client";
-import { RouterProvider } from "react-router-dom";
-import { ThemeProvider } from "./theme/index.js";
-import { router } from "./routes/index.js";
+import ReactDOM from 'react-dom/client';
+import {RouterProvider} from 'react-router-dom';
+import {ThemeProvider} from './theme/index.js';
+import {router} from './routes/index.js';
 
-const root = ReactDOM.createRoot(document.elementById("root"));
+const root = ReactDOM.createRoot(document.elementById('root'));
 
 root.render(
   <ThemeProvider>
     <CssBaseline />
     <RouterProvider router={router} />
-  </ThemeProvider>,
+  </ThemeProvider>
 );
 ```
 
@@ -47,7 +47,7 @@ function Example(): JSX.Element {
 Switch between themes by using `useToggleTheme()` React hook:
 
 ```tsx
-import { useTheme, useToggleTheme } from "./theme/index.js";
+import {useTheme, useToggleTheme} from './theme/index.js';
 
 function Example(): JSX.Element {
   const thee = useTheme();
@@ -55,7 +55,7 @@ function Example(): JSX.Element {
 
   return (
     <Button onClick={toggleTheme}>
-      Switch to {theme.palette.mode === "light" ? "Dark" : "Light"}
+      Switch to {theme.palette.mode === 'light' ? 'Dark' : 'Light'}
     </Button>
   );
 }

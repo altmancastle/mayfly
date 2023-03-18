@@ -1,19 +1,19 @@
-import axios from 'axios'
+import axios from 'axios';
 
 export const request = axios.create({
   headers: {
-    'content-type': 'application/json;charset=UTF-8',
+    'content-type': 'application/json;charset=UTF-8'
   },
   baseURL: import.meta.env.VITE_API_BASE_URL,
-  timeout: 5000,
-})
+  timeout: 5000
+});
 
 request.interceptors.request.use((config) => {
-  return config
-})
+  return config;
+});
 
 request.interceptors.response.use((response) => {
-  if (response.data) return response.data
+  if (response.data) return response.data;
 
-  return response
-})
+  return response;
+});
