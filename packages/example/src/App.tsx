@@ -5,7 +5,6 @@ import './App.css';
 function App() {
   const theme = useTheme();
 
-  console.log(theme);
   return <div className="App"></div>;
 }
 

@@ -1,6 +1,3 @@
-/* SPDX-FileCopyrightText: 2014-present Kriasoft */
-/* SPDX-License-Identifier: MIT */
-
 import {Box, Button, Container, Typography} from '@mui/material';
 import React from 'react';
 

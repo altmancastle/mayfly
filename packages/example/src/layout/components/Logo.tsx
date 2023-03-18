@@ -1,6 +1,3 @@
-/* SPDX-FileCopyrightText: 2014-present Kriasoft */
-/* SPDX-License-Identifier: MIT */
-
 import React from 'react';
 import {Typography, TypographyProps} from '@mui/material';
 import {config} from '../../core/config.js';
