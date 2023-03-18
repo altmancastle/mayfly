@@ -19,9 +19,9 @@ function LinkTab(props) {
 }
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState("0");
 
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState("0");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
