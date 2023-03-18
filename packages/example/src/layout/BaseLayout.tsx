@@ -19,10 +19,6 @@ export function BaseLayout(): JSX.Element {
           }
         }}
       />
-
-      <BaseToolbar />
-      <Toolbar />
-
       <React.Suspense>
         <Outlet />
       </React.Suspense>

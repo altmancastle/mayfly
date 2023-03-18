@@ -19,7 +19,7 @@ export function Notice(props: NoticeProps): JSX.Element {
     >
       <span>
         By clicking Continue above, your acknowledge that your have read and
-        understood, and agree to {config.app.name}&apos;s
+        understood, and agree to &apos;s
       </span>{' '}
       <Link color="inherit" href="/terms">
         Terms & Conditions

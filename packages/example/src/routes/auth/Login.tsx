@@ -16,8 +16,8 @@ import {
   useHandleSubmit,
   useState,
   useSwitchSAML
-} from './Login.hooks.js';
-import {Notice} from './Notice.js';
+} from './Login.hooks';
+import {Notice} from './Notice';
 
 /**
  * The login and registration page inspired by Notion. Example:

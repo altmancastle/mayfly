@@ -9,11 +9,14 @@ import {
   Switch
 } from '@mui/material';
 import {Link as NavLink, useNavigate} from 'react-router-dom';
+import {useTheme, useToggleTheme} from '../../theme';
 
 export function UserMenu(props: UserMenuProps): JSX.Element {
   const {PaperProps, MenuListProps, ...other} = props;
   const close = useClose(props.onClose);
   const signOut = useHandleSignOut(props.onClose);
+  const toggleTheme = useToggleTheme();
+  const theme = useTheme();
 
   return (
     <Menu
@@ -36,8 +39,8 @@ export function UserMenu(props: UserMenuProps): JSX.Element {
         <ListItemText primary="Dark Mode" />
         <Switch
           name="theme"
-          // checked={theme?.palette?.mode === 'dark'}
-          // onChange={toggleTheme}
+          checked={theme?.palette?.mode === 'dark'}
+          onChange={toggleTheme}
         />
       </MenuItem>
 

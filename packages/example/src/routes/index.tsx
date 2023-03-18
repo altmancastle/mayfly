@@ -20,7 +20,7 @@ const AccountDetails = lazy(() => import('./settings/AccountDetails'));
  */
 export const router = createBrowserRouter([
   {
-    path: '',
+    path: '/',
     element: <BaseLayout />,
     errorElement: <RootError />,
     children: [
@@ -51,6 +51,6 @@ export const router = createBrowserRouter([
 
 // Clean up on module reload (HMR)
 // https://vitejs.dev/guide/api-hmr
-// if (import.meta.hot) {
-//   import.meta.hot.dispose(() => router.dispose());
-// }
+if (import.meta.hot) {
+  import.meta.hot.dispose(() => router.dispose());
+}

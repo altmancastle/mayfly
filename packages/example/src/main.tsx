@@ -5,14 +5,17 @@ import {ThemeProvider} from './theme';
 import {CssBaseline} from '@mui/material';
 import QueryClientProvider from './queries';
 import {router} from './routes';
+import {RecoilRoot} from 'recoil';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <QueryClientProvider>
-      <ThemeProvider>
-        <CssBaseline />
-        <RouterProvider router={router} />
-      </ThemeProvider>
-    </QueryClientProvider>
+    <RecoilRoot>
+      <QueryClientProvider>
+        <ThemeProvider>
+          <CssBaseline />
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      </QueryClientProvider>
+    </RecoilRoot>
   </React.StrictMode>
 );
