@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Tab from "@mui/material/Tab";
-import Tabs from "@mui/material/Tabs ";
+import Tabs from "@mui/material/Tabs";
 import Box from "@mui/material/Box";
 import "./App.css";
 
