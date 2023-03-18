@@ -8,18 +8,33 @@ import palettes from './palettes';
 import {components} from './components';
 import * as typography from './typography';
 
-const {palette} = createTheme({palette: palettes.light});
-let theme = createTheme(
-  {
-    palette,
-    typography: typography.options,
-    components: components(palette)
-  },
-  {
-    typography: typography.overrides
-  }
-);
+const themeNameKey = 'ThemeName';
+
+function generateTheme(name: PaletteMode) {
+  const {palette} = createTheme({palette: palettes[name]});
+  let theme = createTheme(
+    {
+      palette,
+      typography: typography.options,
+      components: components(palette)
+    },
+    {
+      typography: typography.overrides
+    }
+  );
+  return theme;
+}
+
+/**
+ * Switches between "light" and "dark" themes.
+ */
+export function useToggleTheme(name: PaletteMode) {
+  return generateTheme(name);
+}
+const themeContext = {generateTheme, theme: palettes.dark};
+
+const ThemeContext = React.createContext(themeContext);
 
 export function ThemeProvider(props: {children: React.ReactNode}): JSX.Element {
-  return <MuiThemeProvider theme={theme} {...props} />;
+  return <MuiThemeProvider theme={generateTheme('dark')} {...props} />;
 }
