@@ -12,7 +12,12 @@ module.exports = {
   },
   plugins: ["react"],
   rules: {
-    quotes: ["error", "double"],
-    semi: ["error", "always"],
+    "prettier/prettier": [
+      "error",
+      {
+        usePrettierrc: true,
+      },
+    ],
+    "react/no-unknown-property": ["error", { ignore: ["css"] }],
   },
 };
