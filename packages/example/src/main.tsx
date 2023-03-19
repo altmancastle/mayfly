@@ -4,7 +4,7 @@ import {RouterProvider} from 'react-router-dom';
 import {ThemeProvider} from './theme';
 import {CssBaseline} from '@mui/material';
 import QueryClientProvider from './queries';
-import {router} from './routes';
+import {router} from './pages';
 import {RecoilRoot} from 'recoil';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

@@ -1,6 +1,6 @@
 import {AppBar, AppBarProps, Link, Toolbar} from '@mui/material';
 import * as React from 'react';
-import {Link as NavLink} from '../../common/Link';
+import {Link as NavLink} from '../../components/Link';
 import {Logo} from './Logo.js';
 import {NotificationsMenu} from './NotificationsMenu';
 import {ThemeButton} from './ThemeButton';

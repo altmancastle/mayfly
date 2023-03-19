@@ -7,7 +7,7 @@ import {
   Toolbar,
   useTheme
 } from '@mui/material';
-import {Link} from '../../common/Link.js';
+import {Link} from '../../components/Link.js';
 import {Logo} from './Logo.js';
 
 export function BaseToolbar(props: AppBarProps): JSX.Element {
