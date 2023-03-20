@@ -7,7 +7,7 @@
     "dev:example": "pnpm run --filter ./packages/example dev",
     "build:example": "pnpm run --filter ./packages/example build",
     "preview:example": "pnpm run --filter ./packages/example preview",
-    "build:@mf/layout": "pnpm run --filter ./packages/_mayfly build",
+    "test:@mf/layout": "pnpm run --filter ./packages/_mayfly test",
     "prepare": "husky install",
     "lint:eslint": "eslint . --fix",
     "lint:prettier": "prettier --write .",
