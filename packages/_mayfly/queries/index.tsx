@@ -15,7 +15,7 @@ const queryClient = new QueryClient({
   }
 });
 
-export default function QueryClientProvider({
+export function QueryClientProvider({
   children
 }: React.PropsWithChildren<Record<string, any>>) {
   return <Provider client={queryClient}>{children}</Provider>;

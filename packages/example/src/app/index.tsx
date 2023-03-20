@@ -1,9 +1,9 @@
 import React from 'react';
 import {lazy} from 'react';
 import {createBrowserRouter, Navigate} from 'react-router-dom';
-import {AppLayout} from '../layout/AppLayout';
-import {BaseLayout} from '../layout/BaseLayout';
-import {RootError} from '../layout/RootError';
+import {AppLayout} from '@mf/layout';
+import {BaseLayout} from '@mf/layout';
+import {RootError} from '@mf/layout';
 
 const Login = lazy(() => import('./auth/Login'));
 const Privacy = lazy(() => import('./legal/Privacy'));
