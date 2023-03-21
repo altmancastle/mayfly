@@ -7,7 +7,7 @@ import {
   useRecoilValue,
   useRecoilState
 } from 'recoil';
-import {AppAuthAtom, AppConfigAtom} from '../../../core/config';
+import {AppConfigAtom} from '../../../core/config';
 import {ThemeName} from '@mf/layout';
 
 export default function Home(): JSX.Element {
@@ -15,16 +15,11 @@ export default function Home(): JSX.Element {
 
   const [test, setTest] = useRecoilState(AppConfigAtom);
   const [theme, setTheme] = useRecoilState(ThemeName);
-  const [auth, setAuth] = useRecoilState(AppAuthAtom);
 
   const handleClick = () => {
     setTest({});
     setTheme('dark');
   };
-
-  useEffect(() => {
-    setAuth('23');
-  }, []);
 
   return (
     <Container sx={{py: '20vh'}} maxWidth="sm">

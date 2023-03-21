@@ -28,23 +28,3 @@ export const AppConfigAtom = atom<any>({
     }
   ]
 });
-
-/**
- * App config.
- */
-export const AppAuthAtom = atom<any>({
-  key: 'auth',
-  effects: [
-    (ctx) => {
-      const storageKey = 'auth';
-
-      if (ctx.trigger === 'get') {
-        ctx.setSelf('12312312312323');
-      }
-
-      ctx.onSet((value) => {
-        localStorage?.setItem(storageKey, value);
-      });
-    }
-  ]
-});
