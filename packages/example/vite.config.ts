@@ -11,7 +11,9 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          react: ['react', 'react-dom', 'react-router-dom', 'recoil']
+          react: ['react', 'react-dom', 'react-router-dom'],
+          recoil: ['recoil'],
+          mui: ['@mui/material', '@emotion/react', '@emotion/styled']
         }
       }
     }

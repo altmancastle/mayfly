@@ -1,7 +1,31 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Box, Button, Container, Typography} from '@mui/material';
+import {
+  atom,
+  selectorFamily,
+  useRecoilCallback,
+  useRecoilValue,
+  useRecoilState
+} from 'recoil';
+import {AppAuthAtom, AppConfigAtom} from '../../../core/config';
+import {ThemeName} from '@mf/layout';
 
 export default function Home(): JSX.Element {
+  console.log('test');
+
+  const [test, setTest] = useRecoilState(AppConfigAtom);
+  const [theme, setTheme] = useRecoilState(ThemeName);
+  const [auth, setAuth] = useRecoilState(AppAuthAtom);
+
+  const handleClick = () => {
+    setTest({});
+    setTheme('dark');
+  };
+
+  useEffect(() => {
+    setAuth('23');
+  }, []);
+
   return (
     <Container sx={{py: '20vh'}} maxWidth="sm">
       <Typography sx={{mb: 2}} variant="h1" align="center">
@@ -11,6 +35,13 @@ export default function Home(): JSX.Element {
       <Typography sx={{mb: 4}} variant="h3" align="center">
         The web&apos;s most popular Jamstack React template.
       </Typography>
+
+      <Button
+        onClick={handleClick}
+        variant="outlined"
+        size="large"
+        children={theme}
+      />
 
       <Box
         sx={{

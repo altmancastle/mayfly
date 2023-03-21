@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {RouterProvider} from 'react-router-dom';
 import {ThemeProvider} from '@mf/layout';
 import {CssBaseline} from '@mui/material';
 import {QueryClientProvider} from '@mf/layout';
-import {router} from './app';
+import App from './app/App';
 import {RecoilRoot} from 'recoil';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -13,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <QueryClientProvider>
         <ThemeProvider>
           <CssBaseline />
-          <RouterProvider router={router} />
+          <App />
         </ThemeProvider>
       </QueryClientProvider>
     </RecoilRoot>

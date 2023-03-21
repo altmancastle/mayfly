@@ -8,4 +8,6 @@
 dist
 **/dist
 public
+**/.cache
+.cache
 node_modules
