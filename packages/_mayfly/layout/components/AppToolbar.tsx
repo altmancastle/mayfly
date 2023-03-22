@@ -1,7 +1,16 @@
-import {AppBar, AppBarProps, Link, Toolbar} from '@mui/material';
+import {
+  AppBar,
+  AppBarProps,
+  Button,
+  IconButton,
+  Link,
+  Toolbar
+} from '@mui/material';
+import {ArrowDropDown, NotificationsNone} from '@mui/icons-material';
 import * as React from 'react';
 import {Link as NavLink} from '../../components/Link';
-import {Logo} from './Logo.js';
+import {useCurrentUser} from '../../store/auth';
+import {Logo} from './Logo';
 import {NotificationsMenu} from './NotificationsMenu';
 import {ThemeButton} from './ThemeButton';
 import {UserMenu} from './UserMenu';
@@ -9,6 +18,8 @@ import {UserMenu} from './UserMenu';
 export function AppToolbar(props: AppToolbarProps): JSX.Element {
   const {sx, ...other} = props;
   const menuAnchorRef = React.createRef<HTMLButtonElement>();
+
+  const user = useCurrentUser();
 
   const [anchorEl, setAnchorEl] = React.useState({
     userMenu: null as HTMLElement | null,
@@ -50,6 +61,57 @@ export function AppToolbar(props: AppToolbarProps): JSX.Element {
         {/* Account related controls (icon buttons) */}
 
         <ThemeButton sx={{mr: 1}} />
+
+        {user && (
+          <IconButton
+            sx={{
+              marginLeft: (x) => x.spacing(1),
+              backgroundColor: (x) =>
+                x.palette.mode === 'light'
+                  ? x.palette.grey[300]
+                  : x.palette.grey[700],
+              width: 40,
+              height: 40
+            }}
+            children={<NotificationsNone />}
+            onClick={openNotificationsMenu}
+          />
+        )}
+
+        {user && (
+          <IconButton
+            ref={menuAnchorRef}
+            sx={{
+              marginLeft: (x) => x.spacing(1),
+              backgroundColor: (x) =>
+                x.palette.mode === 'light'
+                  ? x.palette.grey[300]
+                  : x.palette.grey[700],
+              width: 40,
+              height: 40
+            }}
+            children={<ArrowDropDown />}
+            onClick={openUserMenu}
+          />
+        )}
+        {user === null && (
+          <Button
+            component={NavLink}
+            variant="text"
+            href="/login"
+            color="inherit"
+            children="Log in"
+          />
+        )}
+        {user === null && (
+          <Button
+            component={NavLink}
+            variant="outlined"
+            href="/signup"
+            color="inherit"
+            children="Create an account"
+          />
+        )}
       </Toolbar>
 
       {/* Pop-up menus */}

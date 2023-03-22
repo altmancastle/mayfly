@@ -1,6 +1,5 @@
 import React from 'react';
 import {Typography, TypographyProps} from '@mui/material';
-import {config} from '../../core/config.js';
 
 export function Logo(props: TypographyProps): JSX.Element {
   const {sx, ...other} = props;
