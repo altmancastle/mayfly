@@ -6,7 +6,7 @@ import {
   Link,
   Toolbar
 } from '@mui/material';
-import {ArrowDropDown, NotificationsNone} from '@mui/icons-material';
+import {ArrowDropDown, NotificationsNone, MenuIcon} from '@mui/icons-material';
 import * as React from 'react';
 import {Link as NavLink} from '../../components/Link';
 import {useCurrentUser} from '../../store/auth';
@@ -14,10 +14,14 @@ import {Logo} from './Logo';
 import {NotificationsMenu} from './NotificationsMenu';
 import {ThemeButton} from './ThemeButton';
 import {UserMenu} from './UserMenu';
+import {useLayoutConfig, useToggleSider} from '../../store/layout';
 
 export function AppToolbar(props: AppToolbarProps): JSX.Element {
   const {sx, ...other} = props;
   const menuAnchorRef = React.createRef<HTMLButtonElement>();
+  const toggleSider = useToggleSider();
+
+  const layoutConfig = useLayoutConfig();
 
   const user = useCurrentUser();
 
@@ -42,6 +46,10 @@ export function AppToolbar(props: AppToolbarProps): JSX.Element {
     setAnchorEl((x) => ({...x, userMenu: null}));
   }
 
+  function handleDrawerOpen() {
+    toggleSider();
+  }
+
   return (
     <AppBar
       sx={{zIndex: (theme) => theme.zIndex.drawer + 1, ...sx}}
@@ -50,6 +58,19 @@ export function AppToolbar(props: AppToolbarProps): JSX.Element {
       {...other}
     >
       <Toolbar>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          onClick={handleDrawerOpen}
+          edge="start"
+          sx={{
+            marginRight: 5,
+            ...(layoutConfig?.openSider && {display: 'none'})
+          }}
+        >
+          <MenuIcon />
+        </IconButton>
+
         {/* App name / logo */}
 
         <Link color="inherit" underline="none" href="/" component={NavLink}>

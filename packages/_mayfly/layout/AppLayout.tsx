@@ -1,4 +1,4 @@
-import {Toolbar} from '@mui/material';
+import {Box, Container, Paper, Stack, Toolbar} from '@mui/material';
 import * as React from 'react';
 import {Outlet} from 'react-router-dom';
 import {AppToolbar} from './components/AppToolbar.js';
@@ -11,10 +11,26 @@ export function AppLayout(): JSX.Element {
     <React.Fragment>
       <AppToolbar />
       <Toolbar />
-
-      <React.Suspense>
-        <Outlet />
-      </React.Suspense>
+      <Stack direction="row" spacing={2}>
+        <Box
+          sx={{
+            width: ' 200px',
+            height: '100%',
+            background: '#aaa'
+          }}
+        >
+          test
+        </Box>
+        <Box
+          sx={{
+            flex: '1'
+          }}
+        >
+          <React.Suspense>
+            <Outlet />
+          </React.Suspense>
+        </Box>
+      </Stack>
     </React.Fragment>
   );
 }

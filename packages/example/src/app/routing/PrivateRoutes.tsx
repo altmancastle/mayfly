@@ -2,6 +2,7 @@ import React, {Suspense, lazy} from 'react';
 import {Navigate} from 'react-router-dom';
 import {AppLayout} from '@mf/layout';
 import {RootError} from '@mf/layout';
+import LayoutDrawer from '@mf/layout/layout/LayoutDrawer';
 
 const Dashboard = lazy(() => import('../pages/dashboard/Dashboard'));
 
@@ -12,7 +13,7 @@ export function PrivateRoutes() {
   return [
     {
       path: '',
-      element: <AppLayout />,
+      element: <LayoutDrawer />,
       errorElement: <RootError />,
       children: [
         {index: true, element: <Navigate to="/dashboard" replace />},
