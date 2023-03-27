@@ -1,6 +1,3 @@
-/* SPDX-FileCopyrightText: 2020-present Kriasoft */
-/* SPDX-License-Identifier: MIT */
-
 import React from 'react';
 import {Container, Typography} from '@mui/material';
 import {useRouteError} from 'react-router-dom';

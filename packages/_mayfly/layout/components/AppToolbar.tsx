@@ -6,7 +6,8 @@ import {
   Link,
   Toolbar
 } from '@mui/material';
-import {ArrowDropDown, NotificationsNone, MenuIcon} from '@mui/icons-material';
+import {ArrowDropDown, NotificationsNone} from '@mui/icons-material';
+import MenuIcon from '@mui/icons-material/Menu';
 import * as React from 'react';
 import {Link as NavLink} from '../../components/Link';
 import {useCurrentUser} from '../../store/auth';

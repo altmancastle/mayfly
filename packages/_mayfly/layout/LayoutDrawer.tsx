@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {styled, useTheme} from '@mui/material/styles';
+import {CSSObject, styled, Theme, useTheme} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar from '@mui/material/AppBar';
+import MuiAppBar, {AppBarProps as MuiAppBarProps} from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -24,7 +24,7 @@ import {Outlet} from 'react-router-dom';
 
 const drawerWidth = 240;
 
-const openedMixin = (theme) => ({
+const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
@@ -33,7 +33,7 @@ const openedMixin = (theme) => ({
   overflowX: 'hidden'
 });
 
-const closedMixin = (theme) => ({
+const closedMixin = (theme: Theme): CSSObject => ({
   transition: theme.transitions.create('width', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen
@@ -54,6 +54,45 @@ const DrawerHeader = styled('div')(({theme}) => ({
   ...theme.mixins.toolbar
 }));
 
+interface AppBarProps extends MuiAppBarProps {
+  open?: boolean;
+}
+
+const AppBar = styled(MuiAppBar, {
+  shouldForwardProp: (prop) => prop !== 'open'
+})<AppBarProps>(({theme, open}) => ({
+  zIndex: theme.zIndex.drawer + 1,
+  transition: theme.transitions.create(['width', 'margin'], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen
+  }),
+  ...(open && {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen
+    })
+  })
+}));
+
+const Drawer = styled(MuiDrawer, {
+  shouldForwardProp: (prop) => prop !== 'open'
+})(({theme, open}) => ({
+  width: drawerWidth,
+  flexShrink: 0,
+  whiteSpace: 'nowrap',
+  boxSizing: 'border-box',
+  ...(open && {
+    ...openedMixin(theme),
+    '& .MuiDrawer-paper': openedMixin(theme)
+  }),
+  ...(!open && {
+    ...closedMixin(theme),
+    '& .MuiDrawer-paper': closedMixin(theme)
+  })
+}));
+
 export default function LayoutDrawer() {
   const theme = useTheme();
 
@@ -70,7 +109,7 @@ export default function LayoutDrawer() {
   return (
     <Box sx={{display: 'flex'}}>
       <CssBaseline />
-      <MuiAppBar position="fixed">
+      <AppBar position="fixed" open={layoutConfig?.openSider}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -88,8 +127,8 @@ export default function LayoutDrawer() {
             Mini variant drawer
           </Typography>
         </Toolbar>
-      </MuiAppBar>
-      <MuiDrawer variant="permanent" open={layoutConfig?.openSider}>
+      </AppBar>
+      <Drawer variant="permanent" open={layoutConfig?.openSider}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? (
@@ -159,7 +198,7 @@ export default function LayoutDrawer() {
             </ListItem>
           ))}
         </List>
-      </MuiDrawer>
+      </Drawer>
       <Box component="main" sx={{flexGrow: 1, p: 3}}>
         <DrawerHeader />
         <React.Suspense>
