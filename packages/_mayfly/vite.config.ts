@@ -17,6 +17,7 @@ export default defineConfig({
       fileName: 'mf-layout'
     },
     rollupOptions: {
+      external: ['react', 'react-dom', 'recoil'],
       output: {}
     }
   }

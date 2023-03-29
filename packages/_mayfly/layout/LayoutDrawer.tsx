@@ -21,6 +21,8 @@ import MailIcon from '@mui/icons-material/Mail';
 
 import {useLayoutConfig, useToggleSider} from '../store/layout';
 import {Outlet} from 'react-router-dom';
+import {ThemeButton} from './components/ThemeButton';
+import {Logo} from './components/Logo';
 
 const drawerWidth = 240;
 
@@ -111,21 +113,15 @@ export default function LayoutDrawer() {
       <CssBaseline />
       <AppBar position="fixed" open={layoutConfig?.openSider}>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(layoutConfig?.openSider && {display: 'none'})
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
-          </Typography>
+          <Logo />
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{flexGrow: 1}}
+          ></Typography>
+
+          <ThemeButton sx={{mr: 1}} />
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={layoutConfig?.openSider}>
