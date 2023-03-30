@@ -115,12 +115,13 @@ export default function LayoutDrawer() {
         <Toolbar>
           <Logo />
           <Typography
-            variant="h6"
+            variant="h3"
             noWrap
             component="div"
-            sx={{flexGrow: 1}}
-          ></Typography>
-
+            sx={{flexGrow: 1, paddingLeft: '10px'}}
+          >
+            MF-UI
+          </Typography>
           <ThemeButton sx={{mr: 1}} />
         </Toolbar>
       </AppBar>

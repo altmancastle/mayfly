@@ -10,42 +10,23 @@ export function Logo(props: TypographyProps): JSX.Element {
         ...sx,
         display: 'flex',
         alignItems: 'center',
-        fontSize: '3.5rem',
+        fontSize: '1.5rem',
         fontWeight: 500
       }}
       variant="h1"
       {...other}
     >
       <svg
-        style={{width: '1em', height: '0.36em'}}
-        width="336"
-        height="121"
-        viewBox="0 0 336 121"
+        style={{width: '1em', height: '1em'}}
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M0 120.5L24 0H69L45 120.5H0Z" fill="#EE7874" />
-        <path d="M123 120.5L147 0H192L168 120.5H123Z" fill="#9D8AC4" />
-        <path d="M306.5 54H205.215L199.3 84H299.5L306.5 54Z" fill="#9D8AC4" />
         <path
-          d="M335.5 0H216L209.6 32H326.5L335.5 0Z"
-          fill="#F09C15"
-          fill-opacity="0.6"
-        />
-        <path
-          d="M192 120.5L216 0H261L237 120.5H192Z"
-          fill="#10B2CD"
-          fill-opacity="0.6"
-        />
-        <path
-          d="M147 0L73 67L80 74H115.5L189 15L192 0H147Z"
-          fill="#F29B0E"
-          fill-opacity="0.6"
-        />
-        <path
-          d="M123 68L69 0H24L21 15.5L80 74H115.5L123 68Z"
-          fill="#1A9AAF"
-          fill-opacity="0.6"
+          d="M7.09619 4.67216C8.24141 -0.586849 8.70984 -1.5951 12.0387 2.61429C15.3676 6.82367 18.1942 12.3857 13.5891 11.1489C6.77807 9.31972 -2.54777 -4.93125 0.646792 9.55008C3.84135 24.0314 5.84637 10.4115 7.09619 4.67216Z"
+          fill="currentColor"
         />
       </svg>
     </Typography>
