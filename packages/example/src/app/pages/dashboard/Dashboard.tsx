@@ -3,10 +3,9 @@ import {Box, Button, Container, Typography} from '@mui/material';
 import {useRecoilState} from 'recoil';
 import {AppConfigAtom} from '../../../core/config';
 import {ThemeName} from '@mf/layout';
+import {useQueryLogin} from '@mf/layout/queries/auth';
 
 export default function Home(): JSX.Element {
-  console.log('test');
-
   const [test, setTest] = useRecoilState(AppConfigAtom);
   const [theme, setTheme] = useRecoilState(ThemeName);
 
@@ -14,6 +13,11 @@ export default function Home(): JSX.Element {
     setTest({});
     setTheme('dark');
   };
+
+  const {data, isLoading, isError, isFetched} = useQueryLogin({
+    email: 'admin@demo.com',
+    password: 'demo'
+  });
 
   return (
     <Container sx={{py: '20vh'}} maxWidth="sm">

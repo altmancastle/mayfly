@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import {Link as NavLink, useNavigate} from 'react-router-dom';
 import {useTheme, useToggleTheme} from '../../theme';
+import {useQueryUserByToken} from '../../queries/auth';
 
 export function UserMenu(props: UserMenuProps): JSX.Element {
   const {PaperProps, MenuListProps, ...other} = props;
@@ -17,6 +18,10 @@ export function UserMenu(props: UserMenuProps): JSX.Element {
   const signOut = useHandleSignOut(props.onClose);
   const toggleTheme = useToggleTheme();
   const theme = useTheme();
+
+  const {data, isLoading} = useQueryUserByToken();
+
+  console.log(data, 'data');
 
   return (
     <Menu
@@ -31,7 +36,7 @@ export function UserMenu(props: UserMenuProps): JSX.Element {
     >
       <MenuItem component={NavLink} to="/settings" onClick={close}>
         <ListItemIcon sx={{minWidth: 40}} />
-        <ListItemText primary="Account Details" />
+        <ListItemText primary={data?.userName || ''} />
       </MenuItem>
 
       <MenuItem>

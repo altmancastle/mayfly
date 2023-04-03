@@ -23,6 +23,7 @@ import {useLayoutConfig, useToggleSider} from '../store/layout';
 import {Outlet} from 'react-router-dom';
 import {ThemeButton} from './components/ThemeButton';
 import {Logo} from './components/Logo';
+import { UserMenu } from './components/UserMenu';
 
 const drawerWidth = 240;
 
@@ -122,6 +123,7 @@ export default function LayoutDrawer() {
           >
             MF-UI
           </Typography>
+          <UserMenu />
           <ThemeButton sx={{mr: 1}} />
         </Toolbar>
       </AppBar>

@@ -16,14 +16,14 @@ export default defineConfig({
         }
       }
     }
-  },
-
-  server: {
-    proxy: {
-      '/api': {
-        target: 'localhost:5137/api',
-        changeOrigin: true
-      }
-    }
   }
+
+  // server: {
+  //   proxy: {
+  //     '/api': {
+  //       target: 'localhost:5137/api',
+  //       changeOrigin: true
+  //     }
+  //   }
+  // }
 });
