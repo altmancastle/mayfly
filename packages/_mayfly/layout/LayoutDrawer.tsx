@@ -23,7 +23,7 @@ import {useLayoutConfig, useToggleSider} from '../store/layout';
 import {Outlet} from 'react-router-dom';
 import {ThemeButton} from './components/ThemeButton';
 import {Logo} from './components/Logo';
-import { UserMenu } from './components/UserMenu';
+import {UserMenu} from './components/UserMenu';
 
 const drawerWidth = 240;
 
